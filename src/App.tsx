@@ -1,32 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import { AddTask } from "./components/AddTask"
+import { TaskList } from "./components/TaskList"
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <div className="p-5">
+      <header className="bg-green-300 flex justify-center p-2 mt-3">
+        <h1 className="text-3xl font-bold">Todo List</h1>
+      </header>
+      
+      <main className="lg:flex lg:justify-between">
+        <AddTask />
+        <section className="lg:w-3/6">
+          <TaskList />
+        </section>
+      </main>
+
+  
+      
     </div>
   )
 }
