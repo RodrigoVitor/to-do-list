@@ -15,6 +15,21 @@ const App = () => {
     })
   }
 
+  const handleRemoveTask = (id: string) => {
+    dispatch({
+      type: 'DEL',
+      payload: {
+        id
+      }
+    })
+  }
+
+  const handleRemoveAll = () => {
+    dispatch({
+      type: 'DELALL'
+    })
+  }
+
   return (
     <div className="p-5">
       <header className="bg-green-300 flex justify-center p-2 mt-3">
@@ -22,9 +37,9 @@ const App = () => {
       </header>
       
       <main className="lg:flex lg:justify-between">
-        <AddTask actionAddTask={handleAddTask} />
+        <AddTask actionAddTask={handleAddTask} actionRemoveAll={handleRemoveAll} />
         <section className="lg:w-3/6">
-          <TaskList tasks={taskReducer} />
+          <TaskList tasks={taskReducer} removeTask={handleRemoveTask}/>
         </section>
       </main>
 

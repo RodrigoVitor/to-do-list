@@ -1,10 +1,11 @@
 import { ChangeEvent, useState } from "react"
 type Props = {
-    actionAddTask: (value: string) => void
+    actionAddTask: (value: string) => void,
+    actionRemoveAll: () => void
 }
 // import { useTaskList } from '../hooks/TaskList'
 
-export const AddTask = ({actionAddTask}: Props) => {
+export const AddTask = ({actionAddTask, actionRemoveAll}: Props) => {
     const [task, setTask] = useState('')
     const handleSetTask = (e: ChangeEvent<HTMLInputElement>) => {
         setTask(e.target.value)
@@ -31,7 +32,12 @@ export const AddTask = ({actionAddTask}: Props) => {
                     >
                             Adicionar
                     </button>
-                    <button className="mt-3 bg-red-500 hover:bg-red-400 p-2 text-[#fff] rounded-md">Remover tudo</button>
+                    <button 
+                        className="mt-3 bg-red-500 hover:bg-red-400 p-2 text-[#fff] rounded-md"
+                        onClick={actionRemoveAll}
+                    >
+                        Remover tudo
+                    </button>
                 </div>
             </div>
         </div>
