@@ -12,7 +12,7 @@ export const TaskList = ({tasks, removeTask}: Props) => {
             {tasks.length > 0 &&
                 tasks.map((item) => (
                     <div className="border-b-2 flex justify-around items-center">
-                        <p className="mt-5 mb-5 font-bold">
+                        <p className="mt-5 mb-5 font-bold w-40">
                            {item.value}
                         </p>
                         <button 
